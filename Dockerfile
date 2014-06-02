@@ -34,7 +34,7 @@ RUN echo 'user:acoman' |chpasswd
 RUN apt-get install -y nfs-kernel-server
 
 #Insatll runninit to provide runsvdir (http://manpages.ubuntu.com/manpages/trusty/man8/runsvdir.8.html)
-RUN apt-get install -y runit
+RUN apt-get install -y runit inotify-tools
 
 RUN mkdir -p /etc/sv/nfs
 ADD nfs.init /etc/sv/nfs/run
