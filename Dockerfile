@@ -30,7 +30,11 @@ RUN echo 'user:acoman' |chpasswd
 
 #you can ssh into this container ssh user@<host> -p <whatever 22 has been mapped to>
 
-RUN apt-get update && apt-get install -y nfs-kernel-server
+#Install nfs kernel server
+RUN apt-get install -y nfs-kernel-server
+
+#Insatll runninit to provide runsvdir (http://manpages.ubuntu.com/manpages/trusty/man8/runsvdir.8.html)
+RUN apt-get install -y runit
 
 RUN mkdir -p /etc/sv/nfs
 ADD nfs.init /etc/sv/nfs/run
