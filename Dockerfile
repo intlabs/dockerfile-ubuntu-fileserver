@@ -32,9 +32,9 @@ RUN echo 'user:acoman' |chpasswd
 #you can ssh into this container ssh user@<host> -p <whatever 22 has been mapped to>
 
 
-apt-get install -y nfs-kernel-server
+RUN apt-get install -y nfs-kernel-server
 
-echo '/home   *(rw,sync,fsid=0,no_subtree_check)' >> /etc/exports
+RUN echo '/home   *(rw,sync,fsid=0,no_subtree_check)' >> /etc/exports
 
 # Define mountable directories.
 VOLUME ["/data"]
