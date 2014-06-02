@@ -1,10 +1,9 @@
 #
-# Ubuntu Desktop (Gnome) Dockerfile
+# Ubuntu Fileserver for CannyOS Dockerfile
 #
 # https://github.com/intlabs/dockerfile-ubuntu-fileserver
 #
 
-# Install GNOME3 and VNC server.
 # (c) Pete Birley
 
 # Pull base image.
@@ -31,10 +30,13 @@ RUN echo 'user:acoman' |chpasswd
 
 #you can ssh into this container ssh user@<host> -p <whatever 22 has been mapped to>
 
-
+# Install nfs server
 RUN apt-get install -y nfs-kernel-server
-
+# Define exports
 RUN echo '/home   *(rw,sync,fsid=0,no_subtree_check)' >> /etc/exports
+
+ADD startup.sh /usr/local/etc/startup.sh
+RUN chmod +x /usr/local/etc/startup.sh
 
 # Define mountable directories.
 VOLUME ["/data"]
@@ -43,9 +45,13 @@ VOLUME ["/data"]
 WORKDIR /data
 
 # Define default command.
-#CMD bash -C '/usr/local/etc/spawn-desktop.sh';'bash'
-CMD "bash"
-#CMD    /usr/sbin/sshd -D
+CMD bash -C '/usr/local/etc/startup.sh';'bash'
+#CMD "bash"
 
 # Expose ports.
-EXPOSE 22
+
+#SSH
+EXPOSE 22/tcp
+
+#NFS
+EXPOSE 111/udp 2049/tcp
