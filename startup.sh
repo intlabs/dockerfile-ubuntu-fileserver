@@ -10,5 +10,5 @@ set -e
 echo '/home   *(rw,sync,fsid=0,no_subtree_check)' >> /etc/exports
 
 #Startup NFS server
-exec runsvdir /etc/sv &
+runsvdir /etc/sv &
 
