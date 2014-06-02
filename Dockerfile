@@ -36,7 +36,9 @@ RUN mkdir -p /exports
 
 RUN mkdir -p /etc/sv/nfs
 ADD nfs.init /etc/sv/nfs/run
+RUN chmod 755 /etc/sv/nfs/run
 ADD nfs.stop /etc/sv/nfs/finish
+RUN chmod 755 /etc/sv/nfs/finish
 
 
 # Define exports
