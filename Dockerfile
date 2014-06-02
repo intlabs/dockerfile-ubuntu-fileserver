@@ -30,8 +30,15 @@ RUN echo 'user:acoman' |chpasswd
 
 #you can ssh into this container ssh user@<host> -p <whatever 22 has been mapped to>
 
-# Install nfs server
-RUN apt-get install -y nfs-kernel-server
+RUN apt-get update -qq && apt-get install -y nfs-kernel-server runit inotify-tools -qq
+RUN mkdir -p /exports
+
+
+RUN mkdir -p /etc/sv/nfs
+ADD nfs.init /etc/sv/nfs/run
+ADD nfs.stop /etc/sv/nfs/finish
+
+
 # Define exports
 RUN echo '/home   *(rw,sync,fsid=0,no_subtree_check)' >> /etc/exports
 
