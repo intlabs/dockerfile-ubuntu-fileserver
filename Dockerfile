@@ -48,7 +48,7 @@ RUN chmod +x /usr/local/etc/startup.sh
 
 RUN cd / && wget -O dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x86_64" && tar -xvzf dropbox.tar.gz && mv .dropbox-dist dropbox-dist
 
-ADD "http://www.dropbox.com/download?dl=packages/dropbox.py" /bin/dropbox.py
+ADD http://www.dropbox.com/download?dl=packages/dropbox.py /bin/dropbox.py
 
 # Define mountable directories.
 VOLUME ["/data"]
