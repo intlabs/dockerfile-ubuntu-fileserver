@@ -45,6 +45,10 @@ RUN chmod 755 /etc/sv/nfs/finish
 ADD startup.sh /usr/local/etc/startup.sh
 RUN chmod +x /usr/local/etc/startup.sh
 
+
+RUN cd / && wget -O dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x86_64" && tar -xvzf dropbox.tar.gz && mv .dropbox-dist dropbox-dist
+
+
 # Define mountable directories.
 VOLUME ["/data"]
 

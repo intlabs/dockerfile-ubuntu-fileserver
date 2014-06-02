@@ -12,3 +12,4 @@ echo '/home   *(rw,sync,fsid=0,no_subtree_check)' >> /etc/exports
 #Startup NFS server
 runsvdir /etc/sv &
 
+/.dropbox-dist/dropboxd
