@@ -8,6 +8,8 @@ This repository contains the *Dockerfile* and *associated files* for setting up 
 * [dockerfile/ubuntu](http://dockerfile.github.io/#/ubuntu)
 * the host must have the the nfs kernel server package installed (ubuntu 14.04)
 	`sudo apt-get install -y nfs-kernel-server`
+	`sudo service rpcbind stop`
+	`sudo service nfs-kernel-server stop`
 
 
 ### Installation
