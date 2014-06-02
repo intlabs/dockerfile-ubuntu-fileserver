@@ -4,9 +4,11 @@
 #Startup ssh
 /usr/sbin/sshd -D &
 
+set -e
+
 # Define exports
 echo '/home   *(rw,sync,fsid=0,no_subtree_check)' >> /etc/exports
 
 #Startup NFS server
-runsvdir /etc/sv &
+exec runsvdir /etc/sv &
 
