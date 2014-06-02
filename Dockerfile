@@ -30,19 +30,13 @@ RUN echo 'user:acoman' |chpasswd
 
 #you can ssh into this container ssh user@<host> -p <whatever 22 has been mapped to>
 
-RUN apt-get update -qq && apt-get install -y nfs-kernel-server runit inotify-tools -qq
-RUN mkdir -p /exports
-
+RUN apt-get update && apt-get install -y nfs-kernel-server
 
 RUN mkdir -p /etc/sv/nfs
 ADD nfs.init /etc/sv/nfs/run
 RUN chmod 755 /etc/sv/nfs/run
 ADD nfs.stop /etc/sv/nfs/finish
 RUN chmod 755 /etc/sv/nfs/finish
-
-
-# Define exports
-RUN echo '/home   *(rw,sync,fsid=0,no_subtree_check)' >> /etc/exports
 
 ADD startup.sh /usr/local/etc/startup.sh
 RUN chmod +x /usr/local/etc/startup.sh

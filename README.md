@@ -6,6 +6,8 @@ This repository contains the *Dockerfile* and *associated files* for setting up 
 ### Dependencies
 
 * [dockerfile/ubuntu](http://dockerfile.github.io/#/ubuntu)
+* the host must have the the nfs kernel server package installed (ubuntu 14.04)
+	`sudo apt-get install -y nfs-kernel-server`
 
 
 ### Installation
@@ -54,10 +56,10 @@ This repository contains the *Dockerfile* and *associated files* for setting up 
 
 * this will run and drop you into a session:
 
-	`sudo docker run -it --rm -p 222:22 --privileged=true intlabs/dockerfile-ubuntu-fileserver`
+	`sudo docker run -it --rm -p 222:22 -p 111:111 -p 2049:2049 --privileged=true intlabs/dockerfile-ubuntu-fileserver`
 
 * or for silent running:
 
-	`sudo docker run -it -d -p 222:22 --privileged=true intlabs/dockerfile-ubuntu-fileserver`
+	`sudo docker run -it -d -p 222:22 -p 111:111 -p 2049:2049  --privileged=true intlabs/dockerfile-ubuntu-fileserver`
 
 
