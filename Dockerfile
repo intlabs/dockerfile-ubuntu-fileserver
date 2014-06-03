@@ -45,10 +45,15 @@ RUN chmod 755 /etc/sv/nfs/finish
 ADD startup.sh /usr/local/etc/startup.sh
 RUN chmod +x /usr/local/etc/startup.sh
 
-
+#Install official dropbox sync utility
 RUN cd / && wget -O dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x86_64" && tar -xvzf dropbox.tar.gz && mv .dropbox-dist dropbox-dist
-
+# install official dropbox comand line utilities
 ADD http://www.dropbox.com/download?dl=packages/dropbox.py /bin/dropbox.py
+
+
+RUN apt-get install -y fuse libfuse2 python-pkg-resources python-pip
+RUN cd / && git clone https://github.com/realriot/ff4d.git
+RUN pip install dropbox
 
 # Define mountable directories.
 VOLUME ["/data"]
