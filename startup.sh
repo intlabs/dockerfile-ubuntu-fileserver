@@ -1,6 +1,8 @@
 #!/bin/sh
 # (c) Pete Birley
 
+apt-get install -y fuse
+
 #Startup ssh
 /usr/sbin/sshd -D &
 
