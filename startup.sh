@@ -34,5 +34,4 @@ echo "mkdir -p ~/Dropbox && /ff4d/ff4d.py -at <YOURACCESSKEY> -ar ~/Dropbox &"
 
 /ff4d/getDropboxAccessToken.py -ak $app_key -as $app_secret -c $authorization_code
 mkdir -p ~/Dropbox
-
-/ff4d/ff4d.py -ar ~/Dropbox &
+/ff4d/ff4d.py -ar ~/Dropbox 
