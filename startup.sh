@@ -10,13 +10,13 @@ set -e
 #if set to existing - it will expect the access_token to be supplied
 mode="$[1]"
 
-if [ $mode == new ]; then
+if [ "$mode" == 'new' ]; then
 	app_key="${2}"
 	app_secret="${3}"
 	authorization_code="${4}"
 fi
 
-if [ $mode == existing ]; then
+if [ "$mode" == 'existing' ]; then
 	access_token="${2}"
 fi
 
@@ -52,12 +52,12 @@ echo ""
 apt-get install -y fuse
 
 
-if [ $mode == 'new' ]; then
+if [ "$mode" == 'new' ]; then
 	#Get a new access token
 	/ff4d/getDropboxAccessToken.py -ak $app_key -as $app_secret -c $authorization_code 
 fi
 
-if [ $mode == 'existing' ]; then
+if [ "$mode" == 'existing' ]; then
 	#Store access token
 	echo $access_token >> /ff4d/ff4d.config
 fi
