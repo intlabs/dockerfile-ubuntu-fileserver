@@ -29,7 +29,7 @@ echo "sudo docker run -it --rm -p 222:22 -p 111:111 -p 2049:2049 --privileged=tr
 echo ""
 echo "********************************************************************************"
 echo "*                                                                              *"
-echo "*    Your dropbox drive will be mounted at ~/dropbox by default                *"
+echo "*    Your dropbox drive will be mounted at /dropbox by default                *"
 echo "*                                                                              *"
 echo "*                                                                              *"
 echo "*               (c) Pete Birley 2014 - petebirley@gmail.com                    *"
@@ -49,6 +49,9 @@ mkdir -p ~/dropbox
 
 #Launch Dropbox FUSE
 /ff4d/ff4d.py -ar -bg ~/dropbox 
+
+#Symlink dropbox fuse mountpoint to /var/dropbox
+ln -s ~/dropbox /var/dropbox
 
 # Define exports
 echo '/home   *(rw,sync,fsid=0,no_subtree_check)' >> /etc/exports
