@@ -63,8 +63,11 @@ VOLUME ["/data"]
 WORKDIR /data
 
 # Define default command.
-CMD bash -C '/usr/local/etc/startup.sh';'bash'
+#CMD bash -C '/usr/local/etc/startup.sh';'bash'
 #CMD "bash"
+
+ENTRYPOINT ["/usr/local/etc/startup.sh"]
+
 
 # Expose ports.
 
