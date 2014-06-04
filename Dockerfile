@@ -49,9 +49,12 @@ RUN cd / && wget -O dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x8
 ADD http://www.dropbox.com/download?dl=packages/dropbox.py /bin/dropbox.py
 
 
+#Install fuse dropbox utility: https://github.com/intlabs/ff4d
 RUN apt-get install -y libfuse2 python-pkg-resources python-pip
-RUN cd / && git clone https://github.com/realriot/ff4d.git
+RUN cd / && git clone https://github.com/intlabs/ff4d.git
 RUN pip install dropbox
+
+
 
 # Define mountable directories.
 VOLUME ["/data"]
