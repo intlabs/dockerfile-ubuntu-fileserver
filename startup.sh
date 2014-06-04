@@ -42,7 +42,7 @@ echo ""
 apt-get install -y fuse
 
 #Get access token
-/ff4d/getDropboxAccessToken.py -ak $app_key -as $app_secret -c $authorization_code &
+/ff4d/getDropboxAccessToken.py -ak $app_key -as $app_secret -c $authorization_code 
 
 #Make mountpoint
 mkdir -p ~/dropbox
