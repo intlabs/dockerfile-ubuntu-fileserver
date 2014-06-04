@@ -86,16 +86,13 @@ if [ "$mode" = "existing" ]; then
 fi
 
 #Make mountpoint
-mkdir -p /var/user-storage/dropbox
+mkdir -p /var/dropbox
 
 #Launch Dropbox FUSE
-/ff4d/ff4d.py -ar -bg /var/user-storage/dropbox 
-
-#Symlink dropbox fuse mountpoint to /var/user-storage
-#ln -s ~/dropbox /var/user-storage
+/ff4d/ff4d.py -ar -bg /var/dropbox 
 
 # Define exports
-echo '/home   *(rw,sync,fsid=0,no_subtree_check)' >> /etc/exports
+echo '/var/dropbox   *(rw,sync,fsid=0,no_subtree_check)' >> /etc/exports
 
 #Startup NFS server
 runsvdir /etc/sv &
@@ -104,7 +101,7 @@ runsvdir /etc/sv &
 #Announce bonus package option - can be used to sync folders.
 echo "BONUS!"
 echo "to run the official dropbox util and mount & sync to ~/Dropbox:"
-echo "/dropbox-dist/dropboxd"
+echo "/dropbox-dist/dropboxd then: mkdir -p /var/user-storage/Dropbox-official && ln -s ~/Dropbox /var/user-storage/Dropbox-official"
 
 # Drop into a command prompt
 bash
