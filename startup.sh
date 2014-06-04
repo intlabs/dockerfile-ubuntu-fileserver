@@ -17,7 +17,7 @@ echo "*    go to the url specified bellow  (eaxple for cannyos testing)         
 echo "*                                                                              *"
 echo "********************************************************************************"
 echo ""
-echo "https://www.dropbox.com/1/oauth2/authorize?response_type=code&client_id=axq0c8se5oo7ndh"
+echo "https://www.dropbox.com/1/oauth2/authorize?response_type=code&client_id=$app_key"
 echo ""
 echo "********************************************************************************"
 echo "*                                                                              *"
