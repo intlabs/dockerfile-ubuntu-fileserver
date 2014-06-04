@@ -50,8 +50,8 @@ mkdir -p ~/dropbox
 #Launch Dropbox FUSE
 /ff4d/ff4d.py -ar -bg ~/dropbox 
 
-#Symlink dropbox fuse mountpoint to /var/dropbox
-ln -s ~/dropbox /var/dropbox
+#Symlink dropbox fuse mountpoint to /var/user-storage
+ln -s ~/dropbox /var/user-storage
 
 # Define exports
 echo '/home   *(rw,sync,fsid=0,no_subtree_check)' >> /etc/exports
