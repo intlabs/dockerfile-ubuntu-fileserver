@@ -10,25 +10,32 @@ set -e
 #if set to existing - it will expect the access_token to be supplied
 mode="$[1]"
 
-if [ "$mode" == 'new' ]; then
+if [ "$mode" == "new" ]; then
 	app_key="${2}"
 	app_secret="${3}"
 	authorization_code="${4}"
+	echo "********************************************************************************"
+	echo "*                                                                              *"
+	echo "*    this mode expects you to have done the following:                         *"
+	echo "*    create a new dropbox api app and use its generated output                 *"
+	echo "*    go to the url specified bellow  (exaple for cannyos testing)              *"
+	echo "*                                                                              *"
+	echo "********************************************************************************"
+	echo ""
+	echo "https://www.dropbox.com/1/oauth2/authorize?response_type=code&client_id=$app_key"
+	echo ""
 fi
 
-if [ "$mode" == 'existing' ]; then
+if [ "$mode" == "existing" ]; then
 	access_token="${2}"
+	echo "********************************************************************************"
+	echo "*                                                                              *"
+	echo "*    this mode expects you to have already got an access_token                 *"
+	echo "*                                                                              *"
+	echo "********************************************************************************"
+	echo ""
 fi
 
-echo "********************************************************************************"
-echo "*                                                                              *"
-echo "*    create a new dropbox api app and use its generated output                 *"
-echo "*    go to the url specified bellow  (eaxple for cannyos testing)              *"
-echo "*                                                                              *"
-echo "********************************************************************************"
-echo ""
-echo "https://www.dropbox.com/1/oauth2/authorize?response_type=code&client_id=$app_key"
-echo ""
 echo "********************************************************************************"
 echo "*                                                                              *"
 echo "*    this docker containter should then be launched using the command          *"
@@ -52,12 +59,12 @@ echo ""
 apt-get install -y fuse
 
 
-if [ "$mode" == 'new' ]; then
+if [ "$mode" == "new" ]; then
 	#Get a new access token
 	/ff4d/getDropboxAccessToken.py -ak $app_key -as $app_secret -c $authorization_code 
 fi
 
-if [ "$mode" == 'existing' ]; then
+if [ "$mode" == "existing" ]; then
 	#Store access token
 	echo $access_token >> /ff4d/ff4d.config
 fi
