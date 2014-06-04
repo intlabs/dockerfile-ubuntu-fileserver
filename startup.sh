@@ -8,7 +8,7 @@ set -e
 
 #if set to new - it will expect the app_key, app_secret and authorisation code to be supplied
 #if set to existing - it will expect the access_token to be supplied
-mode="$[1]"
+mode="${1}"
 
 if [ "$mode" == "new" ]; then
 	app_key="${2}"
