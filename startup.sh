@@ -86,13 +86,13 @@ if [ "$mode" = "existing" ]; then
 fi
 
 #Make mountpoint
-mkdir -p ~/dropbox
+mkdir -p /var/user-storage/dropbox
 
 #Launch Dropbox FUSE
-/ff4d/ff4d.py -ar -bg ~/dropbox 
+/ff4d/ff4d.py -ar -bg /var/user-storage/dropbox 
 
 #Symlink dropbox fuse mountpoint to /var/user-storage
-ln -s ~/dropbox /var/user-storage
+#ln -s ~/dropbox /var/user-storage
 
 # Define exports
 echo '/home   *(rw,sync,fsid=0,no_subtree_check)' >> /etc/exports
