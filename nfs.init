@@ -1,9 +1,0 @@
-#!/bin/bash
-
-source /etc/default/nfs-kernel-server
-source /etc/default/nfs-common
-
-rpcbind
-service nfs-kernel-server start
-
-inotifywait -m /home
