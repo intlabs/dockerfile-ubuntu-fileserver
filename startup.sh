@@ -73,10 +73,6 @@ echo ""
 
 #Install fuse - this is a really ugly hack to deal with fuse in dropbox during development
 apt-get install -y fuse
-gpasswd -a user fuse
-gpasswd -a root fuse
-usermod -aG fuse user
-usermod -aG fuse root
 
 #Allow remote root login with password
 sed -i -e 's/PermitRootLogin without-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && /etc/init.d/ssh restart
