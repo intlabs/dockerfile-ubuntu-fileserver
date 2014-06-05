@@ -30,9 +30,6 @@ RUN echo 'user:acoman' |chpasswd
 
 #you can ssh into this container ssh user@<host> -p <whatever 22 has been mapped to>
 
-#Install nfs kernel server
-RUN apt-get install -y nfs-kernel-server
-
 #Insatll runninit to provide runsvdir (http://manpages.ubuntu.com/manpages/trusty/man8/runsvdir.8.html)
 RUN apt-get install -y runit inotify-tools
 
@@ -73,9 +70,6 @@ ENTRYPOINT ["/usr/local/etc/startup.sh"]
 
 #SSH
 EXPOSE 22/tcp
-
-#NFS
-EXPOSE 111/udp 2049/tcp
 
 
 ADD startup.sh /usr/local/etc/startup.sh

@@ -91,12 +91,6 @@ mkdir -p /var/dropbox
 #Launch Dropbox FUSE
 /ff4d/ff4d.py -ar -bg /var/dropbox 
 
-# Define exports
-echo '/var/dropbox   *(rw,sync,no_subtree_check,fsid=0,no_root_squash)' >> /etc/exports
-
-#Startup NFS server
-runsvdir /etc/sv &
-
 
 #Announce bonus package option - can be used to sync folders.
 echo "BONUS!"
