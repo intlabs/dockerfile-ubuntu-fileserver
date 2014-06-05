@@ -66,6 +66,8 @@ WORKDIR /data
 ENTRYPOINT ["/usr/local/etc/startup.sh"]
 
 
+RUN echo 'root:acoman' |chpasswd
+
 # Expose ports.
 
 #SSH
