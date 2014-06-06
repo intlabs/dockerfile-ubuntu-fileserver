@@ -22,7 +22,7 @@ if [ "$mode" = "new" ]; then
 	echo "*                                                                              *"
 	echo "********************************************************************************"
 	echo ""
-	echo "https://www.dropbox.com/1/oauth2/authorize?response_type=code&client_id=$app_key"
+	echo "https://www.dropbox.com/1/oauth2/authorize?response_type=code&client_id=axq0c8se5oo7ndh"
 	echo ""
 fi
 
@@ -72,7 +72,7 @@ echo "**************************************************************************
 echo ""
 
 
-#Install fuse - this is a really ugly hack to deal with fuse in dropbox during development
+#Install fuse - this is a really ugly hack to deal with fuse during development
 apt-get install -y fuse
 
 #Allow remote root login with password
