@@ -43,6 +43,8 @@ mv .dropbox-dist dropbox-dist
 # install official dropbox comand line utilities
 ADD http://www.dropbox.com/download?dl=packages/dropbox.py /bin/dropbox.py
 
+RUN apt-get install -y git
+
 #Install fuse dropbox utility: https://github.com/intlabs/ff4d
 RUN apt-get install -y libfuse2 python-pkg-resources python-pip
 RUN cd / && git clone https://github.com/intlabs/ff4d.git
