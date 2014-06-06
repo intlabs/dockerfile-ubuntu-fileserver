@@ -51,6 +51,7 @@ echo ""
 echo "********************************************************************************"
 echo "*                                                                              *"
 echo "*  launch using: (for an existing connection)                                  *"
+echo "*          -this currently has permission problems on reconnection             *"
 echo "*                                                                              *"
 echo "********************************************************************************"
 echo ""
@@ -62,7 +63,7 @@ echo "existing <access_token>"
 echo ""
 echo "********************************************************************************"
 echo "*                                                                              *"
-echo "*    Your dropbox drive will be mounted at /dropbox by default                 *"
+echo "*    Your dropbox drive will be mounted at /mnt/dropbox by default                 *"
 echo "*                                                                              *"
 echo "*                                                                              *"
 echo "*               (c) Pete Birley 2014 - petebirley@gmail.com                    *"
@@ -88,10 +89,10 @@ if [ "$mode" = "existing" ]; then
 fi
 
 #Make mountpoint
-mkdir -p ~/dropbox
+mkdir -p /mnt/dropbox
 
 #Launch Dropbox FUSE
-/ff4d/ff4d.py -ar -bg ~/dropbox 
+/ff4d/ff4d.py -ar -bg /mnt/dropbox 
 
 
 #Announce bonus package option - can be used to sync folders.
